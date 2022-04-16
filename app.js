@@ -4,7 +4,10 @@ const wrapper = document.querySelector(".wrapper"),
 inputPart = wrapper.querySelector(".input-part"),
 infoTxt = inputPart.querySelector(".info-txt"),
 inputField = inputPart.querySelector("input"),
-locationBtn = inputPart.querySelector("button")
+locationBtn = inputPart.querySelector("button"),
+weatherIcon = document.querySelector(".main-part img"),
+arrowBack = document.querySelector("header i")
+
 
 let api;
 
@@ -74,7 +77,39 @@ const weatherDetails = info => {
         wrapper.querySelector(".temp .num").innerText = Math.floor(temp)
         wrapper.querySelector(".feelslike-temp span").innerText = Math.floor(feels_like)
         wrapper.querySelector(".humidity-temp span").innerText = `${humidity} %`
+
+        
+        if (id == 800){
+            weatherIcon.src = "icons/clear.svg"
+
+        }
+        else if(id >= 801 && id <= 804){
+            weatherIcon.src = "icons/cloud.svg"
+        }
+
+        else if(id >= 600 && id <= 622){
+            weatherIcon.src = "icons/snow.svg"
+        }
+
+        else if(id >= 500 && id <= 531){
+            weatherIcon.src = "icons/rain.svg"
+        }
+
+        else if(id >= 200 && id <= 232){
+            weatherIcon.src = "icons/storm.svg"
+        }
+
+        else if((id >= 701 && id <= 781) || (id >= 300 && id <= 321)){
+            weatherIcon.src = "icons/haze.svg"
+        }
+         
+         
+         
+
+
+        
     }
+    
 
 }
 
@@ -88,3 +123,7 @@ const fetchData = () => {
         weatherDetails(data)
     })
 }
+
+arrowBack.addEventListener('click', () => {
+    wrapper.classList.remove("active")
+})

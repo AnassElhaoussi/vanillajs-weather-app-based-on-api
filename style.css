@@ -92,7 +92,7 @@ header i {
     border-radius: 0.5rem;
 }
 
-.input-part input:is(:focus, :valid){
+.input-part input:is(:hover, :valid){
     border: 2px solid #43AFFC;
 }
 
