@@ -23,8 +23,7 @@ body {
     background-color: white;
     width: 400px;
     border-radius: 0.8rem;
-    
-    
+
 }
 
 .wrapper header {
@@ -37,18 +36,31 @@ body {
     font-size: 1.2rem;
 }
 
+header i {
+    cursor: pointer;
+    font-size: 0rem;
+}
+
+.wrapper.active header i {
+    font-size: 1rem;
+}
+
 
 .input-part {
     padding:  0 2rem 2rem ;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    display: none;
-    
     
 }
 
-.input-part p {
+.wrapper.active .input-part {
+    display: none;
+}
+
+
+
+.info-txt {
     display: none;
     text-align: center;
     padding: 1rem;
@@ -56,12 +68,16 @@ body {
 }
 
 
-.error {
+
+
+.info-txt.error {
+    display: block;
     color: #721c24;
     background-color: #f8d7da;
 }
 
-.pending {
+.info-txt.pending {
+    display: block;
     color: #0c5460;
     background-color: #d1ecf1;
 }
@@ -106,12 +122,19 @@ body {
 }
 
 .weather-part {
-    display: flex;
+    display:none;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
 
 }
+
+.wrapper.active .weather-part {
+    display: flex;
+}
+
+
+
 
 .main-part {
     display: flex;
